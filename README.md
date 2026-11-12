@@ -38,7 +38,7 @@ El repositorio contiene un desarrollo frontend realizado con HTML, CSS y JavaScr
 | **JavaScript**   | Interactividad del menú móvil, cambios de navegación al hacer scroll, animaciones de entrada, texto rotatorio y actualización dinámica del año. |
 | **Google Fonts** | Carga de las familias tipográficas Inter y JetBrains Mono.                                                                                      |
 | **Git / GitHub** | Control de versiones y almacenamiento del proyecto.                                                                                             |
-| **GitHub Pages** | [PENDIENTE] Confirmar configuración actual para el despliegue del portafolio.                                                                   |
+| **GitHub Pages** | Despliegue del sitio en manuelisaaccamanidiaz-lgtm.github.io/portafolio_profesional.                                                                   |
 
 El proyecto no utiliza frameworks frontend como React, Angular, Vue, Bootstrap o Tailwind CSS.
 
