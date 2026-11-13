@@ -8,6 +8,9 @@
    3. Animaciones de entrada al hacer scroll
    4. Texto rotatorio en el hero
    5. Año dinámico en el footer
+   6. Cambio de idioma
+   7. Contador de repositorios de GitHub
+   8. Fondo animado de constelación
 ================================================================ */
 
 
@@ -132,19 +135,20 @@
   const elemento = document.getElementById('role-text');
   if (!elemento) return;
 
-  /* REEMPLAZA: edita estos textos como quieras */
+  /* En español el prefijo "Desarrollador" va en el HTML; en inglés
+     el prefijo es vacío y cada rol es la frase completa */
   const roles = {
     es: [
       'Full Stack Junior',
-      'Apasionado por la IA',
-      'Entusiasta de la Automatización',
-      'Curioso por naturaleza'
+      'Backend con Java y Spring Boot',
+      'Frontend con JavaScript y React',
+      'de agentes de IA con Python'
     ],
     en: [
       'Junior Full Stack Developer',
-      'AI Enthusiast',
-      'Automation Enthusiast',
-      'Naturally Curious'
+      'Java & Spring Boot Backend Developer',
+      'JavaScript & React Frontend Developer',
+      'AI Agent Developer with Python'
     ]
   };
 
@@ -159,7 +163,7 @@
 
     setTimeout(function () {
       /* Paso 2: cambiar al siguiente texto */
-      indiceActual        = (indiceActual + 1) % roles.length;
+      indiceActual        = (indiceActual + 1) % roles[idiomaActual].length;
       elemento.textContent = roles[idiomaActual][indiceActual];
 
       /* Paso 3: posicionar abajo antes de aparecer */
@@ -211,88 +215,112 @@
   const translations = {
     es: {
       title: 'Manuel Isaac Camaño Díaz — Desarrollador Full Stack Junior',
-      description: 'Portafolio de Manuel Isaac Camaño Díaz, desarrollador Full Stack Junior con enfoque en automatización, JavaScript y n8n.',
+      description: 'Portafolio de Manuel Isaac Camaño Díaz, desarrollador Full Stack Junior y Técnico en Desarrollo de Software e IA. Java, Spring Boot, PostgreSQL, JavaScript, React y agentes de IA con Python.',
       nav: ['Sobre mí', 'Habilidades', 'Proyectos', 'Contacto'],
       greeting: 'Hola, soy',
       rolePrefix: 'Desarrollador ',
-      heroDescription: 'Construyo soluciones que conectan tecnología con problemas reales. Con enfoque en automatización, JavaScript y mucho café. ',
+      heroDescription: 'Construyo APIs REST con Java y Spring Boot, interfaces con JavaScript y React, y agentes de IA con Python.',
       viewProjects: 'Ver proyectos',
       downloadCv: 'Descargar CV',
-      aboutEyebrow: '02 — sobre mí',
+      aboutEyebrow: '01 — sobre mí',
       aboutTitle: '¿Quién soy?',
       aboutParagraphs: [
-        'Soy un desarrollador de software <strong>Campuslands</strong>, Bucaramanga. Me mueve la curiosidad por entender cómo funcionan las cosas y, sobre todo, cómo mejorarlas usando tecnología.',
-        'Disfruto diseñar soluciones a problemas reales con grandes ideas — "si lo puedes imaginar, lo puedes programar" dicen, aplicando mi creatividad y conocimientos pienso facilitar muchas tareas monotonas para los humanos.',
-        'Fuera del código, me gusta planear bien antes de ejecutar. Me gusta siempre entender el todo para saber que hacer con sus partes.'
+        'Soy desarrollador Full Stack junior y Técnico en Desarrollo de Software e Inteligencia Artificial de <strong>Campuslands</strong>, en Bucaramanga. Trabajo el backend con Java, Spring Boot y PostgreSQL, el frontend con JavaScript y React, y construyo agentes de IA con Python.',
+        'Me gusta resolver problemas reales: una plataforma de alquiler de herramientas para ferreterías de mi ciudad, un agente que ayuda a pequeños productores a comprar fertilizantes con precios del DANE o un analizador que compara hojas de vida con una oferta de empleo.',
+        'Antes de escribir código me gusta entender el problema completo y planear la solución. Cuido la arquitectura, la base de datos y la documentación tanto como el resultado final.'
       ],
-      facts: ['Bucaramanga, Colombia', 'Campuslands — Desarrollo de Software', 'Disponible para prácticas profesionales'],
+      facts: ['Bucaramanga, Colombia', 'Técnico en Desarrollo de Software e IA — Campuslands', 'Disponible para prácticas o primer empleo'],
       stat: 'repositorios en GitHub',
-      skillsEyebrow: '03 — habilidades',
+      skillsEyebrow: '02 — habilidades',
       skillsTitle: 'Tecnologías que uso',
       skillsSubtitle: 'Herramientas con las que he construido proyectos reales.',
-      skillCategories: ['Principal', 'Frontend', 'Base de datos', 'Herramientas'],
-      projectsEyebrow: '04 — proyectos',
+      skillCategories: ['Backend', 'Frontend', 'Bases de datos', 'IA y automatización', 'Herramientas'],
+      skillItems: { 'APIs REST y JWT': 'APIs REST y JWT', 'LangChain y RAG': 'LangChain y RAG', 'Git, GitHub y Gitflow': 'Git, GitHub y Gitflow' },
+      projectsEyebrow: '03 — proyectos',
       projectsTitle: 'Lo que he construido',
       projectsSubtitle: 'Proyectos reales, con código real. Sin exagerar.',
       featured: 'Destacado',
-      projectDescriptions: [
-        'Bot de Telegram para gestión de pedidos de cafetería, construido con n8n y Google Sheets como base de datos. Incluye flujo de pedidos, validación de horarios de atención, manejo de errores y reportes automáticos.',
-        'Plataforma bancaria web con gestión de cuentas, transacciones y validaciones. Construida con JavaScript vanilla como proyecto de formación en lógica de negocio y manipulación del DOM.',
-        'Diseño frontend completo de una tienda de ropa. Proyecto desarrollado de forma independiente, aplicando HTML y CSS para construir una interfaz responsive y funcional.',
-        'proyecto basado en java para el seguimiento del ingreso de personas a un establecimiento cuenta con diferentes de usuario, implementacion de persistencia y un visual de SWING'
+      projectTitles: [
+        'RentaHerramientas',
+        'Abona: agente de IA para la compra de fertilizantes',
+        'Analizador de CV con IA',
+        'SICA: sistema de control de acceso'
       ],
-      projectTitles: ['DeliveryBot', 'AcmeBank', 'Tienda de Ropa — Frontend', 'proyecto_SICA'],
+      projectDescriptions: [
+        'Plataforma de alquiler de herramientas entre ferreterías y clientes. API REST con Spring Boot en arquitectura hexagonal y DDD, base de datos PostgreSQL normalizada con migraciones Flyway, seguridad JWT con tres roles, facturas en PDF y frontend en JavaScript.',
+        'Agente con tool calling que asesora a pequeños productores: cuánto vale un fertilizante en su municipio, si conviene comprar ya o esperar y dónde está más barato, con precios oficiales del DANE. Evaluación propia con 128 de 129 respuestas correctas.',
+        'Aplicación que compara currículums en PDF con una oferta de empleo usando Gemini, OpenAI u Ollama. Incluye chat sobre el CV con RAG, ranking de candidatos, historial en PostgreSQL y pruebas con pytest.',
+        'Sistema de escritorio para el ingreso de trabajadores y visitantes a un complejo cerrado. Arquitectura hexagonal y patrón Strategy para 4 flujos de acceso, roles y permisos (RBAC), bitácora de auditoría e interfaz en Swing.'
+      ],
       githubLink: 'Ver en GitHub',
-      liveDemo: 'Demo en vivo',
-      contactEyebrow: '05 — contacto',
+      videoLink: 'Ver video',
+      othersTitle: 'Otros proyectos',
+      otherProjects: [
+        ['DeliveryBot', 'Bot de Telegram para pedidos de una cafetería, hecho con n8n y Google Sheets.'],
+        ['AcmeBank', 'Plataforma bancaria web con cuentas y transacciones en JavaScript vanilla.'],
+        ['Tienda de ropa', 'Frontend responsive de una tienda de ropa con HTML y CSS (demo en vivo).']
+      ],
+      contactEyebrow: '04 — contacto',
       contactTitle: '¿Hablamos?',
-      contactDescription: 'Estoy buscando oportunidades de prácticas profesionales o mi primer empleo. Si tienes un proyecto interesante o una vacante, escríbeme — respondo rápido.',
+      contactDescription: 'Estoy buscando prácticas profesionales o mi primer empleo como desarrollador. Si tienes una vacante o un proyecto interesante, escríbeme.',
       email: 'Enviar email',
-      footerNote: 'Construido con HTML, CSS y JS vanilla',
+      footerNote: 'Construido con HTML, CSS y JavaScript vanilla',
       toggleLabel: 'Cambiar a inglés',
       toggleText: 'EN',
       language: 'es'
     },
     en: {
       title: 'Manuel Isaac Camaño Díaz — Junior Full Stack Developer',
-      description: 'Portfolio of Manuel Isaac Camaño Díaz, a Junior Full Stack Developer focused on automation, JavaScript, and n8n.',
+      description: 'Portfolio of Manuel Isaac Camaño Díaz, Junior Full Stack Developer and Software Development & AI Technician. Java, Spring Boot, PostgreSQL, JavaScript, React and AI agents with Python.',
       nav: ['About me', 'Skills', 'Projects', 'Contact'],
       greeting: 'Hi, I am',
-      rolePrefix: 'Developer ',
-      heroDescription: 'I build solutions that connect technology with real-world problems. Focused on automation, JavaScript, and plenty of coffee.',
+      rolePrefix: '',
+      heroDescription: 'I build REST APIs with Java and Spring Boot, interfaces with JavaScript and React, and AI agents with Python.',
       viewProjects: 'View projects',
       downloadCv: 'Download CV',
-      aboutEyebrow: '02 — about me',
+      aboutEyebrow: '01 — about me',
       aboutTitle: 'Who am I?',
       aboutParagraphs: [
-        'I am a software developer from <strong>Campuslands</strong> in Bucaramanga. I am driven by curiosity to understand how things work and, above all, how to improve them with technology.',
-        'I enjoy designing solutions to real problems with big ideas. As they say, "if you can imagine it, you can program it"; I use my creativity and knowledge to make many tedious tasks easier for people.',
-        'Outside of code, I like to plan carefully before executing. I always want to understand the whole so I know what to do with its parts.'
+        'I am a junior Full Stack developer and Software Development & Artificial Intelligence Technician from <strong>Campuslands</strong> in Bucaramanga, Colombia. I work on the backend with Java, Spring Boot and PostgreSQL, on the frontend with JavaScript and React, and I build AI agents with Python.',
+        'I like solving real problems: a tool rental platform for hardware stores in my city, an agent that helps small farmers buy fertilizer using official DANE prices, or an analyzer that compares resumes against a job posting.',
+        'Before writing code I like to understand the whole problem and plan the solution. I care about architecture, the database and documentation as much as the final result.'
       ],
-      facts: ['Bucaramanga, Colombia', 'Campuslands — Software Development', 'Available for internships'],
+      facts: ['Bucaramanga, Colombia', 'Software Development & AI Technician — Campuslands', 'Open to internships or a first job'],
       stat: 'GitHub repositories',
-      skillsEyebrow: '03 — skills',
+      skillsEyebrow: '02 — skills',
       skillsTitle: 'Technologies I use',
       skillsSubtitle: 'Tools I have used to build real projects.',
-      skillCategories: ['Core', 'Frontend', 'Database', 'Tools'],
-      projectsEyebrow: '04 — projects',
+      skillCategories: ['Backend', 'Frontend', 'Databases', 'AI & automation', 'Tools'],
+      skillItems: { 'APIs REST y JWT': 'REST APIs & JWT', 'LangChain y RAG': 'LangChain & RAG', 'Git, GitHub y Gitflow': 'Git, GitHub & Gitflow' },
+      projectsEyebrow: '03 — projects',
       projectsTitle: 'What I have built',
       projectsSubtitle: 'Real projects, real code. No exaggeration.',
       featured: 'Featured',
-      projectDescriptions: [
-        'Telegram bot for managing coffee shop orders, built with n8n and Google Sheets as a database. It includes order flows, business-hours validation, error handling, and automated reports.',
-        'Web banking platform with account management, transactions, and validations. Built with vanilla JavaScript as a training project focused on business logic and DOM manipulation.',
-        'Complete frontend design for a clothing store. Independently developed with HTML and CSS to build a responsive and functional interface.',
-        'Java project for tracking people entering an establishment, with different user roles, persistence, and a Swing interface.'
+      projectTitles: [
+        'RentaHerramientas',
+        'Abona: AI agent for buying fertilizer',
+        'AI Resume Analyzer',
+        'SICA: access control system'
       ],
-      projectTitles: ['DeliveryBot', 'AcmeBank', 'Clothing Store — Frontend', 'SICA Project'],
+      projectDescriptions: [
+        'Tool rental platform connecting hardware stores and customers. REST API with Spring Boot using hexagonal architecture and DDD, a normalized PostgreSQL database with Flyway migrations, JWT security with three roles, PDF invoices and a JavaScript frontend.',
+        'Tool-calling agent that advises small farmers: how much a fertilizer costs in their town, whether to buy now or wait, and where it is cheapest, using official DANE prices. Custom evaluation with 128 of 129 correct answers.',
+        'App that compares PDF resumes against a job posting using Gemini, OpenAI or Ollama. Includes chat over the resume with RAG, candidate ranking, history stored in PostgreSQL and tests with pytest.',
+        'Desktop system for worker and visitor access to a gated community. Hexagonal architecture and the Strategy pattern for 4 access flows, role-based permissions (RBAC), an audit log and a Swing interface.'
+      ],
       githubLink: 'View on GitHub',
-      liveDemo: 'Live demo',
-      contactEyebrow: '05 — contact',
+      videoLink: 'Watch video',
+      othersTitle: 'Other projects',
+      otherProjects: [
+        ['DeliveryBot', 'Telegram bot for coffee shop orders, built with n8n and Google Sheets.'],
+        ['AcmeBank', 'Web banking platform with accounts and transactions in vanilla JavaScript.'],
+        ['Clothing store', 'Responsive clothing store frontend built with HTML and CSS (live demo).']
+      ],
+      contactEyebrow: '04 — contact',
       contactTitle: "Let's talk",
-      contactDescription: 'I am looking for an internship or my first job. If you have an interesting project or an opening, write to me — I reply quickly.',
+      contactDescription: 'I am looking for an internship or my first job as a developer. If you have an opening or an interesting project, write to me.',
       email: 'Send email',
-      footerNote: 'Built with HTML, CSS, and vanilla JS',
+      footerNote: 'Built with HTML, CSS and vanilla JavaScript',
       toggleLabel: 'Switch to Spanish',
       toggleText: 'ES',
       language: 'en'
@@ -352,6 +380,14 @@
     document.querySelectorAll('.skills__category-title').forEach(function (title, index) {
       title.textContent = text.skillCategories[index];
     });
+    /* Ítems de habilidades que cambian con el idioma (la llave es el texto en español) */
+    document.querySelectorAll('.skills__item').forEach(function (item) {
+      if (!item.dataset.key) {
+        item.dataset.key = item.lastChild.textContent.trim();
+      }
+      const translated = text.skillItems[item.dataset.key];
+      if (translated) item.lastChild.textContent = ' ' + translated;
+    });
     setText('.projects .section__eyebrow', text.projectsEyebrow);
     setText('#projects-title', text.projectsTitle);
     setText('.projects__grid + .section__subtitle, .projects .section__subtitle', text.projectsSubtitle);
@@ -363,7 +399,12 @@
       description.textContent = text.projectDescriptions[index];
     });
     setText('.project-card__link--primary', text.githubLink);
-    setText('.project-card__link:not(.project-card__link--primary)', text.liveDemo);
+    setText('.project-card__link--video', text.videoLink);
+    setText('.projects__others-title', text.othersTitle);
+    document.querySelectorAll('.other-project').forEach(function (project, index) {
+      project.querySelector('.other-project__name').textContent = text.otherProjects[index][0];
+      project.querySelector('.other-project__description').textContent = text.otherProjects[index][1];
+    });
     setText('.contact .section__eyebrow', text.contactEyebrow);
     setText('#contact-title', text.contactTitle);
     setText('.contact__description', text.contactDescription);
@@ -371,14 +412,179 @@
     setText('.footer__text--muted', text.footerNote);
     toggle.textContent = text.toggleText;
     toggle.setAttribute('aria-label', text.toggleLabel);
-    localStorage.setItem('portfolio-language', language);
+    try { localStorage.setItem('portfolio-language', language); } catch (e) { /* almacenamiento no disponible */ }
     document.dispatchEvent(new CustomEvent('languagechange', { detail: { language: language } }));
   }
 
-  const savedLanguage = localStorage.getItem('portfolio-language');
+  let savedLanguage = null;
+  try { savedLanguage = localStorage.getItem('portfolio-language'); } catch (e) { /* almacenamiento no disponible */ }
   setLanguage(savedLanguage === 'en' ? 'en' : 'es');
   toggle.addEventListener('click', function () {
     const nextLanguage = document.documentElement.lang === 'es' ? 'en' : 'es';
     setLanguage(nextLanguage);
   });
+}());
+
+
+/* ================================================================
+   7. CONTADOR DE REPOSITORIOS DE GITHUB
+   Consulta la API pública de GitHub para que el número no se quede
+   viejo. Si la consulta falla, se mantiene el número del HTML.
+================================================================ */
+(function initRepoCount() {
+  const contador = document.getElementById('repo-count');
+  if (!contador || !('fetch' in window)) return;
+
+  fetch('https://api.github.com/users/manuelisaaccamanidiaz-lgtm')
+    .then(function (respuesta) {
+      if (!respuesta.ok) throw new Error('GitHub API ' + respuesta.status);
+      return respuesta.json();
+    })
+    .then(function (datos) {
+      if (Number.isInteger(datos.public_repos)) {
+        contador.textContent = datos.public_repos;
+      }
+    })
+    .catch(function () { /* se deja el valor por defecto */ });
+}());
+
+
+/* ================================================================
+   8. FONDO ANIMADO DE CONSTELACIÓN
+   Puntos que flotan y se unen con líneas cuando están cerca; también
+   se conectan con el mouse. Se pausa cuando la pestaña no está visible.
+   Si el sistema tiene activado "reducir movimiento" (en Windows pasa
+   cuando los efectos de animación están apagados), los puntos se
+   mueven mucho más lento en lugar de quedarse quietos.
+================================================================ */
+(function initConstellation() {
+  const canvas = document.getElementById('constellation');
+  if (!canvas || !canvas.getContext) return;
+
+  const ctx = canvas.getContext('2d');
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+  const LINK_DISTANCE  = 130;   // px: distancia máxima para unir dos puntos
+  const MOUSE_DISTANCE = 170;   // px: distancia para unir un punto con el mouse
+  const SPEED          = 0.45;  // velocidad máxima de cada punto
+  const SLOW_FACTOR    = 0.5;   // multiplicador con "reducir movimiento"
+
+  let width = 0;
+  let height = 0;
+  let points = [];
+  let animationId = null;
+  const mouse = { x: null, y: null };
+
+  function createPoints() {
+    /* Cantidad según el área de la pantalla: menos puntos en celular */
+    const total = Math.min(90, Math.round((width * height) / 15000));
+    points = [];
+    for (let i = 0; i < total; i++) {
+      points.push({
+        x: Math.random() * width,
+        y: Math.random() * height,
+        vx: (Math.random() - 0.5) * SPEED * 2,
+        vy: (Math.random() - 0.5) * SPEED * 2,
+        r: Math.random() * 1.2 + 0.8
+      });
+    }
+  }
+
+  function resize() {
+    const ratio = Math.min(window.devicePixelRatio || 1, 2);
+    width  = window.innerWidth;
+    height = window.innerHeight;
+    canvas.width  = width * ratio;
+    canvas.height = height * ratio;
+    ctx.setTransform(ratio, 0, 0, ratio, 0, 0);
+    createPoints();
+  }
+
+  function drawLine(a, b, maxDistance, strength) {
+    const distance = Math.hypot(a.x - b.x, a.y - b.y);
+    if (distance > maxDistance) return;
+    ctx.strokeStyle = 'rgba(59, 130, 246, ' + ((1 - distance / maxDistance) * strength) + ')';
+    ctx.beginPath();
+    ctx.moveTo(a.x, a.y);
+    ctx.lineTo(b.x, b.y);
+    ctx.stroke();
+  }
+
+  function draw() {
+    ctx.clearRect(0, 0, width, height);
+    ctx.lineWidth = 1;
+
+    for (let i = 0; i < points.length; i++) {
+      for (let j = i + 1; j < points.length; j++) {
+        drawLine(points[i], points[j], LINK_DISTANCE, 0.35);
+      }
+      if (mouse.x !== null) {
+        drawLine(points[i], mouse, MOUSE_DISTANCE, 0.5);
+      }
+    }
+
+    ctx.fillStyle = 'rgba(147, 197, 253, 0.75)';
+    points.forEach(function (point) {
+      ctx.beginPath();
+      ctx.arc(point.x, point.y, point.r, 0, Math.PI * 2);
+      ctx.fill();
+    });
+  }
+
+  function move() {
+    const factor = reduceMotion.matches ? SLOW_FACTOR : 1;
+    points.forEach(function (point) {
+      point.x += point.vx * factor;
+      point.y += point.vy * factor;
+      if (point.x < 0 || point.x > width)  point.vx *= -1;
+      if (point.y < 0 || point.y > height) point.vy *= -1;
+    });
+  }
+
+  function loop() {
+    move();
+    draw();
+    animationId = requestAnimationFrame(loop);
+  }
+
+  function start() {
+    if (animationId === null && !document.hidden) {
+      loop();
+    }
+  }
+
+  function stop() {
+    if (animationId !== null) {
+      cancelAnimationFrame(animationId);
+      animationId = null;
+    }
+  }
+
+  let resizeTimer;
+  window.addEventListener('resize', function () {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(function () {
+      resize();
+      draw();
+    }, 150);
+  });
+
+  window.addEventListener('mousemove', function (event) {
+    mouse.x = event.clientX;
+    mouse.y = event.clientY;
+  });
+
+  document.addEventListener('mouseleave', function () {
+    mouse.x = null;
+    mouse.y = null;
+  });
+
+  /* Pausa la animación cuando la pestaña no se está viendo */
+  document.addEventListener('visibilitychange', function () {
+    if (document.hidden) stop(); else start();
+  });
+
+  resize();
+  draw();
+  start();
 }());
