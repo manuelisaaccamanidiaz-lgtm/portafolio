@@ -50,7 +50,7 @@ portafolio/
 │   └── settings.json
 ├── assets/
 │   ├── cv/
-│   │   └── cv-manuel-isaac-camano-diaz.pdf
+│   │   └── CV_ATS_Manuel-Isaac-Camaño-Diaz_Campuslands.pdf
 │   └── img/
 │       ├── favicon.ico
 │       ├── foto-perfil.jpg
@@ -145,7 +145,7 @@ El fondo del sitio es una constelación animada dibujada con `<canvas>`: puntos 
 
 ## CV
 
-El CV en PDF está en `assets/cv/cv-manuel-isaac-camano-diaz.pdf` y se descarga desde el botón **Descargar CV** del portafolio.
+El CV en PDF está en `assets/cv/CV_ATS_Manuel-Isaac-Camaño-Diaz_Campuslands.pdf` y se descarga desde el botón **Descargar CV** del portafolio.
 
 ## Instalación y ejecución local
 
