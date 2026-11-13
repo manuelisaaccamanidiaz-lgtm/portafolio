@@ -6,11 +6,11 @@ Portafolio web personal desarrollado para presentar el perfil profesional, habil
 
 **GitHub Pages:**
 
-https://manuelisaaccamanidiaz-lgtm.github.io/portafolio_profesional/
+https://manuelisaaccamanidiaz-lgtm.github.io/portafolio/
 
 **Repositorio:**
 
-https://github.com/manuelisaaccamanidiaz-lgtm/portafolio_profesional
+https://github.com/manuelisaaccamanidiaz-lgtm/portafolio
 
 ## Descripción
 
@@ -38,14 +38,14 @@ El repositorio contiene un desarrollo frontend realizado con HTML, CSS y JavaScr
 | **JavaScript**   | Interactividad del menú móvil, cambios de navegación al hacer scroll, animaciones de entrada, texto rotatorio y actualización dinámica del año. |
 | **Google Fonts** | Carga de las familias tipográficas Inter y JetBrains Mono.                                                                                      |
 | **Git / GitHub** | Control de versiones y almacenamiento del proyecto.                                                                                             |
-| **GitHub Pages** | Despliegue del sitio en manuelisaaccamanidiaz-lgtm.github.io/portafolio_profesional.                                                                   |
+| **GitHub Pages** | Despliegue del sitio en manuelisaaccamanidiaz-lgtm.github.io/portafolio.                                                                   |
 
 El proyecto no utiliza frameworks frontend como React, Angular, Vue, Bootstrap o Tailwind CSS.
 
 ## Estructura del proyecto
 
 ```text
-portafolio_profesional/
+portafolio/
 ├── .vscode/
 │   └── settings.json
 ├── assets/
@@ -103,7 +103,7 @@ Presenta el perfil profesional, junto con datos de ubicación, formación y disp
 
 ### Habilidades
 
-Las tecnologías y herramientas se presentan agrupadas en cinco categorías:
+Las habilidades se presentan en seis tarjetas por categoría. Cada tarjeta muestra el nombre y la cantidad, y al pasar el cursor, enfocarla con el teclado o tocarla en el celular aparecen las habilidades de esa categoría:
 
 | Categoría | Tecnologías |
 | --- | --- |
@@ -112,6 +112,7 @@ Las tecnologías y herramientas se presentan agrupadas en cinco categorías:
 | Bases de datos | PostgreSQL, MySQL, Flyway |
 | IA y automatización | Python, LangChain y RAG, Streamlit, n8n |
 | Herramientas | Git, GitHub y Gitflow, Docker, Postman, Linux |
+| Habilidades blandas | Trabajo en equipo, pensamiento analítico, aprendizaje rápido, adaptabilidad, proactividad, comunicación asertiva |
 
 ### Proyectos
 
@@ -153,13 +154,13 @@ Este es un proyecto frontend estático, por lo que no requiere instalación de d
 ### 1. Clonar el repositorio
 
 ```bash
-git clone https://github.com/manuelisaaccamanidiaz-lgtm/portafolio_profesional.git
+git clone https://github.com/manuelisaaccamanidiaz-lgtm/portafolio.git
 ```
 
 ### 2. Entrar al directorio
 
 ```bash
-cd portafolio_profesional
+cd portafolio
 ```
 
 ### 3. Ejecutar el proyecto
@@ -183,7 +184,7 @@ De forma general:
 
 **Demo:**
 
-https://manuelisaaccamanidiaz-lgtm.github.io/portafolio_profesional/
+https://manuelisaaccamanidiaz-lgtm.github.io/portafolio/
 
 ## Aprendizajes
 
