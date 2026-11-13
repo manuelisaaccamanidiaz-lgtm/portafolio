@@ -14,11 +14,11 @@ https://github.com/manuelisaaccamanidiaz-lgtm/portafolio_profesional
 
 ## Descripción
 
-Este proyecto es un portafolio profesional web diseñado para presentar de forma clara y visual el perfil de Manuel Isaac Camaño Díaz como estudiante de Desarrollo de Software en Campuslands.
+Este proyecto es un portafolio profesional web diseñado para presentar de forma clara y visual el perfil de Manuel Isaac Camaño Díaz como desarrollador Full Stack junior y Técnico en Desarrollo de Software e Inteligencia Artificial (Campuslands).
 
 El sitio reúne información personal y profesional, habilidades técnicas, proyectos realizados y diferentes medios de contacto, funcionando como una carta de presentación digital para oportunidades de prácticas profesionales y primeras experiencias laborales.
 
-El repositorio contiene un desarrollo frontend realizado con HTML, CSS y JavaScript vanilla, acompañado de recursos gráficos y documentos profesionales.
+El repositorio contiene un desarrollo frontend realizado con HTML, CSS y JavaScript vanilla, acompañado de recursos gráficos y del CV en PDF.
 
 ## Objetivos
 
@@ -50,20 +50,23 @@ portafolio_profesional/
 │   └── settings.json
 ├── assets/
 │   ├── cv/
-│   │   └── isaac-camano-cv.pdf
+│   │   └── cv-manuel-isaac-camano-diaz.pdf
 │   └── img/
 │       ├── favicon.ico
 │       ├── foto-perfil.jpg
 │       ├── og-preview.jpg
+│       ├── proyecto-abona.jpg
 │       ├── proyecto-acmebank.jpg
+│       ├── proyecto-analizador-cv.jpg
 │       ├── proyecto-deliverybot.jpg
+│       ├── proyecto-rentaherramientas.jpg
+│       ├── proyecto-sica.jpg
 │       └── proyecto-tienda.jpg
 ├── css/
 │   └── styles.css
 ├── js/
 │   └── main.js
-├── Hoja De Vida Campuslands.pdf
-├── Hoja de Vida personal.pdf
+├── README.md
 └── index.html
 ```
 
@@ -92,37 +95,34 @@ La sección inicial muestra:
 * Botón para visualizar los proyectos.
 * Botón para descargar el CV.
 
-El rol profesional incluye un texto que cambia automáticamente mediante JavaScript.
+El rol profesional incluye un texto que cambia automáticamente mediante JavaScript. Todo el sitio puede cambiarse entre español e inglés con el botón ES/EN de la barra de navegación.
 
 ### Sobre mí
 
-Presenta información sobre el perfil académico y personal, junto con datos relacionados con ubicación, formación y disponibilidad para prácticas profesionales.
+Presenta el perfil profesional, junto con datos de ubicación, formación y disponibilidad para prácticas o primer empleo. El número de repositorios se consulta en la API pública de GitHub.
 
 ### Habilidades
 
-Las tecnologías y herramientas se presentan agrupadas en diferentes categorías:
+Las tecnologías y herramientas se presentan agrupadas en cinco categorías:
 
-* JavaScript
-* n8n
-* Python
-* Java
-* HTML5
-* CSS3
-* MySQL
-* Google Sheets
-* Git / GitHub
-* Prompt Engineering
-* Visual Studio Code
+| Categoría | Tecnologías |
+| --- | --- |
+| Backend | Java, Spring Boot, APIs REST y JWT, JUnit |
+| Frontend | JavaScript, React, HTML5, CSS3 |
+| Bases de datos | PostgreSQL, MySQL, Flyway |
+| IA y automatización | Python, LangChain y RAG, Streamlit, n8n |
+| Herramientas | Git, GitHub y Gitflow, Docker, Postman, Linux |
 
 ### Proyectos
 
-El portafolio presenta actualmente tres proyectos:
+El portafolio presenta cuatro proyectos principales:
 
-1. **DeliveryBot** — Bot de Telegram para la gestión de pedidos de cafetería, desarrollado con n8n y Google Sheets.
-2. **AcmeBank** — Plataforma bancaria web desarrollada con JavaScript, HTML5 y CSS3.
-3. **Tienda de Ropa — Frontend** — Interfaz frontend desarrollada con HTML5 y CSS3.
+1. **RentaHerramientas** (destacado) — Plataforma de alquiler de herramientas con Spring Boot, arquitectura hexagonal y DDD, PostgreSQL con Flyway y seguridad JWT.
+2. **Abona** — Agente de IA en Python que asesora la compra de fertilizantes con precios oficiales del DANE.
+3. **Analizador de CV con IA** — Aplicación en Python, Streamlit y LangChain que compara currículums con una oferta de empleo.
+4. **SICA** — Sistema de control de acceso en Java con arquitectura hexagonal, patrón Strategy y MySQL.
 
-Cada proyecto incluye una descripción, tecnologías utilizadas y enlaces relacionados.
+Cada proyecto incluye una captura, descripción, tecnologías utilizadas y enlace al repositorio. Debajo se listan otros proyectos de formación: DeliveryBot, AcmeBank y la tienda de ropa.
 
 ### Contacto
 
@@ -132,8 +132,6 @@ La sección de contacto incluye enlaces para:
 * Acceder a LinkedIn.
 * Acceder al perfil de GitHub.
 
-También se incluye una tarjeta para consultar más proyectos directamente desde GitHub.
-
 ## Diseño y experiencia de usuario
 
 El portafolio utiliza un diseño visual orientado a una presentación profesional, con navegación fija, secciones claramente diferenciadas, tarjetas para los proyectos y elementos visuales de apoyo.
@@ -142,17 +140,11 @@ El diseño incluye adaptación para tabletas y dispositivos móviles mediante me
 
 También se implementan animaciones de entrada al desplazarse por la página y cambios visuales en la barra de navegación durante el scroll.
 
-## Documentos profesionales
+El fondo del sitio es una constelación animada dibujada con `<canvas>`: puntos que flotan y se unen con líneas cuando están cerca o cuando el mouse se acerca. La animación se pausa cuando la pestaña no está visible y se mueve más lento si el usuario activó la opción de reducir movimiento en su sistema.
 
-El repositorio contiene documentos profesionales en formato PDF:
+## CV
 
-* `Hoja De Vida Campuslands.pdf`
-* `Hoja de Vida personal.pdf`
-* `assets/cv/isaac-camano-cv.pdf`
-
-El archivo ubicado en `assets/cv/` está enlazado directamente desde el botón **Descargar CV** del portafolio.
-
-Los documentos se mantienen como recursos profesionales del proyecto y no se reproduce aquí información personal contenida en ellos.
+El CV en PDF está en `assets/cv/cv-manuel-isaac-camano-diaz.pdf` y se descarga desde el botón **Descargar CV** del portafolio.
 
 ## Instalación y ejecución local
 
@@ -226,7 +218,7 @@ Las siguientes propuestas corresponden a posibles mejoras y **no forman parte de
 https://github.com/manuelisaaccamanidiaz-lgtm
 
 **LinkedIn:**
-https://www.linkedin.com/in/manuel-isaac-camaño-diaz-707006305/
+https://www.linkedin.com/in/manuel-isaac-camaño-díaz-707006305/
 
 ## Licencia
 
