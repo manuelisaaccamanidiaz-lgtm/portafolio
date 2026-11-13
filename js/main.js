@@ -11,6 +11,7 @@
    6. Cambio de idioma
    7. Contador de repositorios de GitHub
    8. Fondo animado de constelación
+   9. Tarjetas de habilidades (abrir al tocar en celular)
 ================================================================ */
 
 
@@ -232,10 +233,21 @@
       facts: ['Bucaramanga, Colombia', 'Técnico en Desarrollo de Software e IA — Campuslands', 'Disponible para prácticas o primer empleo'],
       stat: 'repositorios en GitHub',
       skillsEyebrow: '02 — habilidades',
-      skillsTitle: 'Tecnologías que uso',
-      skillsSubtitle: 'Herramientas con las que he construido proyectos reales.',
-      skillCategories: ['Backend', 'Frontend', 'Bases de datos', 'IA y automatización', 'Herramientas'],
-      skillItems: { 'APIs REST y JWT': 'APIs REST y JWT', 'LangChain y RAG': 'LangChain y RAG', 'Git, GitHub y Gitflow': 'Git, GitHub y Gitflow' },
+      skillsTitle: 'Habilidades y tecnologías',
+      skillsSubtitle: 'Pasa el cursor o toca cada categoría para ver el detalle.',
+      skillCategories: ['Backend', 'Frontend', 'Bases de datos', 'IA y automatización', 'Herramientas', 'Habilidades blandas'],
+      skillItems: {
+        'APIs REST y JWT': 'APIs REST y JWT',
+        'LangChain y RAG': 'LangChain y RAG',
+        'Git, GitHub y Gitflow': 'Git, GitHub y Gitflow',
+        'Trabajo en equipo': 'Trabajo en equipo',
+        'Pensamiento analítico': 'Pensamiento analítico',
+        'Aprendizaje rápido': 'Aprendizaje rápido',
+        'Adaptabilidad': 'Adaptabilidad',
+        'Proactividad': 'Proactividad',
+        'Comunicación asertiva': 'Comunicación asertiva'
+      },
+      skillCount: { tech: ['tecnología', 'tecnologías'], soft: ['habilidad', 'habilidades'] },
       projectsEyebrow: '03 — proyectos',
       projectsTitle: 'Lo que he construido',
       projectsSubtitle: 'Proyectos reales, con código real. Sin exagerar.',
@@ -288,10 +300,21 @@
       facts: ['Bucaramanga, Colombia', 'Software Development & AI Technician — Campuslands', 'Open to internships or a first job'],
       stat: 'GitHub repositories',
       skillsEyebrow: '02 — skills',
-      skillsTitle: 'Technologies I use',
-      skillsSubtitle: 'Tools I have used to build real projects.',
-      skillCategories: ['Backend', 'Frontend', 'Databases', 'AI & automation', 'Tools'],
-      skillItems: { 'APIs REST y JWT': 'REST APIs & JWT', 'LangChain y RAG': 'LangChain & RAG', 'Git, GitHub y Gitflow': 'Git, GitHub & Gitflow' },
+      skillsTitle: 'Skills and technologies',
+      skillsSubtitle: 'Hover over or tap each category to see the details.',
+      skillCategories: ['Backend', 'Frontend', 'Databases', 'AI & automation', 'Tools', 'Soft skills'],
+      skillItems: {
+        'APIs REST y JWT': 'REST APIs & JWT',
+        'LangChain y RAG': 'LangChain & RAG',
+        'Git, GitHub y Gitflow': 'Git, GitHub & Gitflow',
+        'Trabajo en equipo': 'Teamwork',
+        'Pensamiento analítico': 'Analytical thinking',
+        'Aprendizaje rápido': 'Fast learning',
+        'Adaptabilidad': 'Adaptability',
+        'Proactividad': 'Proactivity',
+        'Comunicación asertiva': 'Assertive communication'
+      },
+      skillCount: { tech: ['technology', 'technologies'], soft: ['skill', 'skills'] },
       projectsEyebrow: '03 — projects',
       projectsTitle: 'What I have built',
       projectsSubtitle: 'Real projects, real code. No exaggeration.',
@@ -383,10 +406,17 @@
     /* Ítems de habilidades que cambian con el idioma (la llave es el texto en español) */
     document.querySelectorAll('.skills__item').forEach(function (item) {
       if (!item.dataset.key) {
-        item.dataset.key = item.lastChild.textContent.trim();
+        item.dataset.key = item.textContent.trim();
       }
       const translated = text.skillItems[item.dataset.key];
-      if (translated) item.lastChild.textContent = ' ' + translated;
+      if (translated) item.textContent = translated;
+    });
+    /* Cantidad que se muestra en la portada de cada categoría: "4 tecnologías" */
+    document.querySelectorAll('.skills__category').forEach(function (category, index) {
+      const total = category.querySelectorAll('.skills__item').length;
+      const words = text.skillCount[category.dataset.kind] || text.skillCount.tech;
+      category.querySelector('.skills__count').textContent = total + ' ' + words[total === 1 ? 0 : 1];
+      category.querySelector('.skills__list').setAttribute('aria-label', text.skillCategories[index]);
     });
     setText('.projects .section__eyebrow', text.projectsEyebrow);
     setText('#projects-title', text.projectsTitle);
@@ -587,4 +617,42 @@
   resize();
   draw();
   start();
+}());
+
+
+/* ================================================================
+   9. TARJETAS DE HABILIDADES
+   En computador se abren con el cursor (CSS :hover) o con el teclado
+   (:focus-visible). En celular no hay cursor, así que al tocar una
+   tarjeta se le agrega la clase is-open y se cierran las demás.
+================================================================ */
+(function initSkillCards() {
+  const cards = document.querySelectorAll('.skills__category');
+  if (!cards.length) return;
+
+  function closeAll(except) {
+    cards.forEach(function (card) {
+      if (card !== except) card.classList.remove('is-open');
+    });
+  }
+
+  cards.forEach(function (card) {
+    card.addEventListener('click', function () {
+      const willOpen = !card.classList.contains('is-open');
+      closeAll(card);
+      card.classList.toggle('is-open', willOpen);
+    });
+
+    card.addEventListener('keydown', function (event) {
+      if (event.key === 'Enter' || event.key === ' ') {
+        event.preventDefault();
+        card.click();
+      }
+    });
+  });
+
+  /* Tocar fuera de las tarjetas las cierra */
+  document.addEventListener('click', function (event) {
+    if (!event.target.closest('.skills__category')) closeAll(null);
+  });
 }());
